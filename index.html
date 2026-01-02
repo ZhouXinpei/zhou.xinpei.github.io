@@ -21,19 +21,18 @@
 
   <main class="container">
     <section class="card">
-      <h2>Profile</h2>
-      <p id="About Me"></p>
+      <h2>About Me</h2>
+      <p>Welcome to my homepage! </p>
       <p>I am a trilingual (English/French/Mandarin) researcher and practitioner with professional experience across multilateral development banks, the UN system, policy think tanks, and media. My work spans development finance, policy research, and evidence-based decision-making in Asia, Africa, Europe, and North America.</p>
       <p>Current research interests include inclusive development, institutional analysis, fiscal policy, and data-driven policymaking in the Global South.</p>
 
----
     </section>
 
     <section class="card">
       <h2>Connect</h2>
       <ul>
-       <a href="https://www.linkedin.com/">LinkedIn</a> ·
-        <a href="https://twitter.com/">Twitter/X</a> ·
+      <a href="https://www.linkedin.com/">LinkedIn</a> ·
+      <a href="https://twitter.com/">Twitter/X</a> ·
       </ul>
     </section>
 
@@ -41,20 +40,5 @@
     <p>&copy; <span id="year"></span> ZHOU, XINPEI</p>
   </footer>
 
-  <script src="assets/js/common.js"></script>
-  <script>
-    loadData().then(data => {
-      document.getElementById('profileText').textContent = data.profile;
-      document.getElementById('email').href = 'mailto:' + data.contact.email;
-      document.getElementById('email').textContent = data.contact.email;
-      document.getElementById('phone').textContent = data.contact.phone;
-      document.getElementById('address').textContent = data.contact.address;
-      document.getElementById('year').textContent = new Date().getFullYear();
-      document.getElementById('copyEmail').addEventListener('click', () => {
-        navigator.clipboard.writeText(data.contact.email);
-        alert('Email copied to clipboard');
-      });
-    });
-  </script>
 </body>
 </html>
