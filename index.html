@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Zhou Xinpei — Home</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <header class="site-header container">
+    <div class="brand">
+      <h1>ZHO U, XINPEI</h1>
+      <p class="muted">xinpei.zhou@sciencespo.fr | +33 7 43 58 58 94 | Paris, France</p>
+    </div>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="education.html">Education</a>
+      <a href="experience.html">Experience</a>
+      <a href="publications.html">Publications</a>
+      <a class="btn" href="assets/files/CV_Zhou_Xinpei_EN.pdf" target="_blank">Download CV</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Profile</h2>
+      <p id="profileText"></p>
+    </section>
+
+    <section class="card">
+      <h2>Quick Links</h2>
+      <ul>
+        <li><a href="education.html">Education — detailed</a></li>
+        <li><a href="experience.html">Professional Experience — timeline</a></li>
+        <li><a href="publications.html">Selected Publications</a></li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Contact</h2>
+      <p><strong>Email:</strong> <a id="email" href="#">xinpei.zhou@sciencespo.fr</a>
+         <button id="copyEmail" class="small">Copy</button></p>
+      <p><strong>Phone:</strong> <span id="phone">+33 7 43 58 58 94</span></p>
+      <p><strong>Address:</strong> <span id="address">24 rue de verneuil, 75007 Paris</span></p>
+    </section>
+  </main>
+
+  <footer class="site-footer container">
+    <p>&copy; <span id="year"></span> ZHOU, XINPEI</p>
+  </footer>
+
+  <script src="assets/js/common.js"></script>
+  <script>
+    loadData().then(data => {
+      document.getElementById('profileText').textContent = data.profile;
+      document.getElementById('email').href = 'mailto:' + data.contact.email;
+      document.getElementById('email').textContent = data.contact.email;
+      document.getElementById('phone').textContent = data.contact.phone;
+      document.getElementById('address').textContent = data.contact.address;
+      document.getElementById('year').textContent = new Date().getFullYear();
+      document.getElementById('copyEmail').addEventListener('click', () => {
+        navigator.clipboard.writeText(data.contact.email);
+        alert('Email copied to clipboard');
+      });
+    });
+  </script>
+</body>
+</html>
